@@ -51,8 +51,22 @@ class MemcacheServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->extendCache($this->app);
-        $this->extendSession($this->app);
+        /** @var \Illuminate\Contracts\Config\Repository $config */
+        $config = $this->app['config'];
+        // if the cache driver is set to use the memcache driver
+        $cache_connection = $config['cache.default'];
+
+        if ($config['stores.'.$cache_connection.'.driver'] == 'memcache') {
+            // extend the cache manager
+            $this->extendCache($this->app);
+        }
+
+        // if the session driver is set to memcached
+        if ($config['session.driver'] == 'memcache') {
+            // extend the session manager
+            $this->extendSession($this->app);
+        }
+
     }
 
     /**
