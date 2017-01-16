@@ -1,0 +1,13 @@
+{
+    "name": "wawa/laravel-memcache",
+    "description": "memcache for laravel 5, which has self config not use memcached",
+    "type": "driver",
+    "authors": [
+        {
+            "name": "gengkang",
+            "email": "18618300482@163.com"
+        }
+    ],
+    "minimum-stability": "RC",
+    "require": {}
+}
