@@ -8,14 +8,11 @@
             "email": "18618300482@163.com"
         }
     ],
-    "minimum-stability": "RC",
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0",
-        "mockery/mockery": "~0.9",
         "illuminate/session": "~5.0",
         "illuminate/cache": "~5.0"
     },

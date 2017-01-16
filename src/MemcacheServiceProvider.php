@@ -1,4 +1,4 @@
-<?php namespace Swiggles\Memcache;
+<?php namespace Wawa\Memcache;
 
 use Illuminate\Cache\Repository;
 use Illuminate\Cache\CacheManager;
@@ -51,10 +51,7 @@ class MemcacheServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        // extend cacheManager
-
         $this->extendCache($this->app);
-
         $this->extendSession($this->app);
     }
 
