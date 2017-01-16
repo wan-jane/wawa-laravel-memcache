@@ -22,17 +22,6 @@ class MemcacheServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $need_register = false;
-        foreach ($this->app['config']['cache.stores'] as $v) {
-            if ($v['driver'] == 'memcache') {
-                $need_register = true;
-            }
-        }
-
-        if ($need_register === false) {
-            return;
-        }
-
         $this->app->singleton('memcache', function($app)
         {
             $memcache = new MemcacheConnector;
