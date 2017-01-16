@@ -1,7 +1,7 @@
 {
     "name": "wawa/laravel-memcache",
     "description": "memcache for laravel 5, which has self config not use memcached",
-    "type": "driver",
+    "type": "library",
     "authors": [
         {
             "name": "gengkang",
@@ -9,5 +9,20 @@
         }
     ],
     "minimum-stability": "RC",
-    "require": {}
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "illuminate/session": "~5.0",
+        "illuminate/cache": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wawa\\Memcache\\": "src/"
+        }
+    },
+    "minimum-stability": "RC"
 }
