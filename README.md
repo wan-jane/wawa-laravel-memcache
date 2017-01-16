@@ -4,7 +4,7 @@
 
 Use the below for older versions of laravel 5
 ```shell
-composer require laravel-memcache
+composer require wawa/laravel-memcache
 ```
 
 Add the memcache service provider in app/config/app.php:
