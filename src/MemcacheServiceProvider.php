@@ -22,11 +22,22 @@ class MemcacheServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $need_register = false;
+        foreach ($this->app['config']['cache.stores'] as $v) {
+            if ($v['driver'] == 'memcache') {
+                $need_register = true;
+            }
+        }
+
+        if ($need_register === false) {
+            return;
+        }
+
         $this->app->singleton('memcache', function($app)
         {
             $memcache = new MemcacheConnector;
-
-            $servers = $this->app['config']['cache.stores.memcached.servers'];
+            $connection = $this->app['config']['cache.default'];
+            $servers = $this->app['config']['cache.stores.'.$connection.'.servers'];
             return $memcache->connect($servers);
         });
 
@@ -54,9 +65,9 @@ class MemcacheServiceProvider extends ServiceProvider {
         /** @var \Illuminate\Contracts\Config\Repository $config */
         $config = $this->app['config'];
         // if the cache driver is set to use the memcache driver
-        $cache_connection = $config['cache.default'];
+        $default_connection = $config['cache.default'];
 
-        if ($config['stores.'.$cache_connection.'.driver'] == 'memcache') {
+        if ($config['stores.'.$default_connection.'.driver'] == 'memcache') {
             // extend the cache manager
             $this->extendCache($this->app);
         }
