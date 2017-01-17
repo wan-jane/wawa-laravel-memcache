@@ -21,5 +21,6 @@
             "Wawa\\Memcache\\": "src/"
         }
     },
+     "minimum-stability": "dev"
   
 }
