@@ -16,5 +16,6 @@
         "psr-4": {
             "Wawa\\Memcache\\": "src/"
         }
-    }  
+    }，
+    "minimum-stability": "dev"
 }
